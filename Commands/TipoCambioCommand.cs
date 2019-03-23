@@ -1,16 +1,15 @@
 ﻿using HtmlAgilityPack;
+using searchpe_exchange_rate.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Net;
-using System.Threading;
 using System.Threading.Tasks;
-using TipoCambioSunat.Models;
 
-namespace TipoCambioSunat.Repositories
+namespace searchpe_exchange_rate.Commands
 {
-    public class TipoCambioRepository : ITipoCambioRepository
+    public class TipoCambioCommand
     {
         private const string URL = "http://www.sunat.gob.pe/cl-at-ittipcam/tcS01Alias?mes={0}&anho={1}";
 
@@ -67,7 +66,7 @@ namespace TipoCambioSunat.Repositories
 
             return dt;
         }
-        public Task<TipoCambio> fGetPorDia(int day, int month, int year, CancellationToken cancellationToken)
+        public Task<TipoCambio> fGetPorDia(int day, int month, int year)
         {
             try
             {
@@ -83,16 +82,13 @@ namespace TipoCambioSunat.Repositories
                                  where Convert.ToString(dr["Dia"]) == diaNumero
                                  select Convert.ToString(dr["Venta"])).FirstOrDefault();
 
-                respuesta.Dia = string.Format("{0:00}", day);
-                respuesta.Mes = string.Format("{0:00}", month);
-                respuesta.Anho = string.Format("{0:0000}", year);
-
+                respuesta.Fecha = string.Format("{0:00}", day) + "/" + string.Format("{0:00}", month) + "/" + string.Format("{0:0000}", year);
                 if (sCompra.Trim().Length > 0)
-                {                  
+                {
                     respuesta.Compra = double.Parse(sCompra);
                 }
                 if (sVenta.Trim().Length > 0)
-                {                   
+                {
                     respuesta.Venta = double.Parse(sVenta);
                 }
 
@@ -103,11 +99,10 @@ namespace TipoCambioSunat.Repositories
                 throw ex;
             }
         }
-        public Task<List<TipoCambio>> fGetPorMes(int month, int year, CancellationToken cancellationToken)
+        public Task<List<TipoCambio>> fGetPorMes(int month, int year)
         {
             try
             {
-
                 List<TipoCambio> lstTc = new List<TipoCambio>();
                 DataTable dt = obtenerDatos(month, year);
                 foreach (DataRow dr in dt.Rows)
@@ -115,9 +110,7 @@ namespace TipoCambioSunat.Repositories
                     string diaNumero = int.Parse(dr["Dia"].ToString()).ToString("00");
                     TipoCambio objTc = new TipoCambio()
                     {
-                        Dia = diaNumero,
-                        Mes = string.Format("{0:00}", month),
-                        Anho = string.Format("{0:0000}", year),
+                        Fecha = diaNumero + "/" + string.Format("{0:00}", month) + "/" + string.Format("{0:0000}", year),
                         Compra = double.Parse(dr["Compra"].ToString()),
                         Venta = double.Parse(dr["Venta"].ToString())
                     };

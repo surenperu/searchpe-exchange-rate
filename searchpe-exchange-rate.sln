@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TipoCambioSunat", "TipoCambioSunat.csproj", "{E7009BEE-1465-46E4-B541-A4D08017F576}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "searchpe-exchange-rate", "searchpe-exchange-rate.csproj", "{A7992E01-8E14-465E-9647-0C86CA70B70D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E7009BEE-1465-46E4-B541-A4D08017F576}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E7009BEE-1465-46E4-B541-A4D08017F576}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E7009BEE-1465-46E4-B541-A4D08017F576}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E7009BEE-1465-46E4-B541-A4D08017F576}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7992E01-8E14-465E-9647-0C86CA70B70D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7992E01-8E14-465E-9647-0C86CA70B70D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7992E01-8E14-465E-9647-0C86CA70B70D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7992E01-8E14-465E-9647-0C86CA70B70D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {23566D7E-FBCE-44FF-A31B-A19492BA9847}
+		SolutionGuid = {6992356E-7867-4CBF-9688-0EC10FE8F13A}
 	EndGlobalSection
 EndGlobal
