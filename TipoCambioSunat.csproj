@@ -25,6 +25,7 @@
     <Product>Project Title</Product>
     <Description>Project Description</Description>
     <Copyright>Copyright © Project Author. All rights Reserved</Copyright>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
@@ -41,6 +42,7 @@
     <PackageReference Include="HtmlAgilityPack" Version="1.11.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="3.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.0.2105168" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
     <PackageReference Include="Serilog.AspNetCore" Version="2.1.1" />
