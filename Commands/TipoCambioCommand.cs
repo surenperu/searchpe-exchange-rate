@@ -66,13 +66,13 @@ namespace searchpe_exchange_rate.Commands
 
             return dt;
         }
-        public Task<TipoCambio> fGetPorDia(int day, int month, int year)
+        public async Task<TipoCambio> fGetPorDia(int day, int month, int year)
         {
             try
             {
                 TipoCambio respuesta = new TipoCambio();
 
-                string diaNumero = string.Format("{0:00}", day); ;
+                string diaNumero = Convert.ToString(day); 
                 DataTable dt = obtenerDatos(month, year);
 
                 string sCompra = (from DataRow dr in dt.AsEnumerable()
@@ -93,14 +93,14 @@ namespace searchpe_exchange_rate.Commands
                 }
                 respuesta.Dia = day;
                 respuesta.Promedio = (respuesta.Compra + respuesta.Venta) / 2D;
-                return Task.FromResult(respuesta);
+                return await Task.FromResult(respuesta);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-        public Task<List<TipoCambio>> fGetPorMes(int month, int year)
+        public async Task<List<TipoCambio>> fGetPorMes(int month, int year)
         {
             try
             {
@@ -120,7 +120,7 @@ namespace searchpe_exchange_rate.Commands
                     lstTc.Add(objTc);
                 }
 
-                return Task.FromResult(lstTc);
+                return await Task.FromResult(lstTc);
 
             }
             catch (Exception ex)
