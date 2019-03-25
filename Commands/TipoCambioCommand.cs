@@ -114,7 +114,8 @@ namespace searchpe_exchange_rate.Commands
                         Dia = int.Parse(diaNumero),
                         Fecha = diaNumero + "/" + string.Format("{0:00}", month) + "/" + string.Format("{0:0000}", year),
                         Compra = double.Parse(dr["Compra"].ToString()),
-                        Venta = double.Parse(dr["Venta"].ToString())
+                        Venta = double.Parse(dr["Venta"].ToString()),
+                        Promedio = (double.Parse(dr["Compra"].ToString()) + double.Parse(dr["Venta"].ToString())) / 2D
                     };
                     lstTc.Add(objTc);
                 }
