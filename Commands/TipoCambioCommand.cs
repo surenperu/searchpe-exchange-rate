@@ -91,7 +91,8 @@ namespace searchpe_exchange_rate.Commands
                 {
                     respuesta.Venta = double.Parse(sVenta);
                 }
-
+                respuesta.Dia = day;
+                respuesta.Promedio = (respuesta.Compra + respuesta.Venta) / 2D;
                 return Task.FromResult(respuesta);
             }
             catch (Exception ex)
@@ -110,6 +111,7 @@ namespace searchpe_exchange_rate.Commands
                     string diaNumero = int.Parse(dr["Dia"].ToString()).ToString("00");
                     TipoCambio objTc = new TipoCambio()
                     {
+                        Dia = int.Parse(diaNumero),
                         Fecha = diaNumero + "/" + string.Format("{0:00}", month) + "/" + string.Format("{0:0000}", year),
                         Compra = double.Parse(dr["Compra"].ToString()),
                         Venta = double.Parse(dr["Venta"].ToString())

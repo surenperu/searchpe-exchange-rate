@@ -19,6 +19,7 @@ namespace searchpe_exchange_rate
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             // Register the Swagger generator, defining one or more Swagger documents
             services.AddSwaggerGen(swagger =>
@@ -51,7 +52,7 @@ namespace searchpe_exchange_rate
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCorsConfiguration();
             app.UseMvc();
         }
     }
